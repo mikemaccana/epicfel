@@ -1,0 +1,106 @@
+@charset "UTF-8";
+@import "prism-okaidia.scss";
+
+@mixin no-twitter-handle(){
+  &::after {
+    content: '';
+  }
+}
+
+@mixin slide-background($image) {
+	// Shade background images
+  background: linear-gradient(
+    rgba(0, 0, 0, 0.7),
+    rgba(0, 0, 0, 0.7)
+  ),
+  url("/images/#{$image}");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% auto;
+  color: white;
+  @include no-twitter-handle();
+}
+
+section {
+  font-family: "Lato", sans-serif;
+  font-weight: 200;
+  h1, h2{
+    font-family: "Pacifico", sans-serif;
+    font-weight: 400;
+    color: LightSeaGreen;
+  }
+
+  q {
+    font-family: 'Adobe Garamond Pro';
+    font-size: 24pt;
+    line-height: 26pt;
+    margin: 12pt 0;
+    font-style: oblique;
+  }
+
+  cite {
+    font-family: 'Adobe Garamond Pro';
+    font-style: oblique;
+  }
+
+  a {
+  	color: LightSeaGreen;
+  }
+
+  p {
+    font-size: 16pt;
+  }
+  &.design {
+    h2 {
+      font-family: 'Adobe Garamond Pro';
+      color: #222;
+      font-style: oblique;
+      font-weight: 100;
+    }
+  }
+
+  &.chapter {
+    background-color: #222;
+    h2 {
+      font-family: 'American Typewriter';
+      color: white;
+      font-weight: 100;
+    }
+    @include no-twitter-handle();
+  }
+
+  &.linkedin {
+    @include slide-background("linkedin.png");
+  }
+
+  &.happy {
+    @include slide-background("happy.jpg");
+  }
+
+  &.designed {
+    @include slide-background("designed.jpg");
+  }
+
+  &.notdesigned {
+    @include slide-background("notdesigned.jpg");
+  }
+
+  &.luke {
+    @include slide-background("luke.jpg");
+    q {margin-top: 40%}
+  }
+
+  &.stexupery {
+    @include slide-background("stexupery.jpg");
+    q {margin-top: 40%}
+  }
+
+  &::after {
+    content: '@mikemaccana';
+    font-family: 'Pacifico';
+    position: absolute;
+    right: 2vh;
+    bottom: 2vh;
+    color: #CCC;
+  }
+}

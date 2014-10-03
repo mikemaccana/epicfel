@@ -1,0 +1,232 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
+    title Happiness through simplicity
+
+    link(rel='stylesheet', type='text/css', href='build/build.css')
+
+  body
+
+    article
+
+      section
+        h1 Happiness through simplicity
+
+      section
+        ul
+          li Why simplicity is important.
+          li Ways to make web apps simpler.
+
+      section.linkedin
+        h2 What I do
+
+      section.happy
+        h2 Keeping people happy and moving ahead
+
+      section
+        h2 Happiness ≈ feeling like you're getting somewhere.
+
+      section.designed
+        h2 This is nice to work on
+
+      section.notdesigned
+        h2 This is not
+
+      section.design
+        h1 We are designers
+        h2 Design
+        q The art or action of conceiving of and producing a plan of something.
+        cite  <a href="http://www.oxforddictionaries.com/definition/english/design">OED</a>
+
+      section.stexupery
+        q A designer knows he has achieved perfection not when there is nothing left to add, but when there is nothing left to take away.
+        cite <a href="http://english.stackexchange.com/questions/38837/where-does-this-translation-of-saint-exuperys-quote-on-design-come-from">Antoine de Saint-Exupery</a>
+
+      section.luke
+        q Refactor on first paste.
+        cite <a href="https://twitter.com/kazade">Luke Benstead @kazade)</a>
+
+
+      section
+        h3 Good code
+        ul
+          li
+          li <strong>Everything is relevant</strong>. There's no dead code. If you're not sure, is something's dead, delete it, git revert will forgive you.
+          li <strong>You can change something once</strong> because the the code is free of duplication.
+          li There's <strong>less to be updated and maintained or changed</strong> because the code is free of of unnecessary things. That includes unnecessary good things.
+
+
+      section.chapter
+        h2 API client
+
+      section
+        p Every API method:
+        ul
+          li Repeated auth key
+          li Repeated endpoint
+          li Repeated content-type etc.
+
+      section
+        h2 Simplify: single function export
+        ul
+          li
+          li Export a single function, that takes auth key, endpoint, and a returns an object with methods that use them.
+          li Smaller code inside closure
+          li Smaller function signatures.
+          li Easier testing since we've just implemented dependency injection
+
+      section.chapter
+        h2 Realtime
+
+      section
+        ul
+          li Repeated paths - REST API and websocket
+          li Additional complexity to support these unneeded duplex communications
+          li Additional complexity to support old web technologies
+          li Different debug mechanism
+
+      section
+        h2 Simplify:
+        ul
+          li
+          li HTML5 SSE
+          li Entire API now in REST/HTTP
+          li Single mechanism to get something from the server
+          li Less code
+
+      section.chapter
+        h2 Rate limiting
+
+      section
+        ul
+          li
+          li Third party API
+          li Limit is amount over a time period
+          li Technically a very simple problem
+
+      section
+        h2 Simplify: existing library
+        ul
+          li
+          li Found `node-rate-limit`
+          li <strong>Function signature of module was 1:1 match with requirements</strong>
+          li Benefit: problem fixed, no significant new code
+          li We use libraries for DOM. Use them for modals, state machines, statistics, and AJAX loaders.
+
+      section.chapter
+        h2 Data Binding
+
+      section
+        ul
+          li HTML template, some data, somewhere in the document.
+
+      section
+        h2 Simplify:
+        ul
+          li
+          li ractive.js
+          li Function signature of module was 1:1 match with problem
+          li Benefit: things we didn't consider
+
+      section.chapter
+        h2 DOM complexity
+
+      section
+        p Needed: button, inside a header, inside a nav (header only for vertical centering)
+        ul
+          li
+          li 7 levels deep,
+          li one JS global
+          li styling classes in the DOM
+          li things like nav class="nav"
+
+      section
+        h2 Simplify: hand code
+        ul
+          li Block element layout was a near* 1:1 match match with design
+          li All elements styled in SASS
+          li All elements styled through a single class name. The button in the nav are styles through `nav button`
+          sub * one extra element for vertical centering
+
+      section
+        h3 JS itself
+        ul
+          li console.log(), document.querySelectorAll(), etc.
+          li Solition: in you own code, write all the globals you want and bind them to the objects.
+          li Nobody every types console.
+
+      section
+        h3 Work practice complexity
+        ul
+          li Ticket management system (JIRA?) - images attached to ticket were downloaded, 10 images = 20 clicks to see them all.
+          li Simplify: inline every image attachment with a Chrome extension.
+
+      section
+        h2 In Summary
+        ul
+          li
+          li Unnecessary complexity is a drag.
+          li Actively think about simplicity.
+          li Keep moving, keep happy.
+
+      section
+        h1 Thanks!
+        h2 @mikemaccana
+
+      section
+        h2 Keyboard Interaction
+        h3 Powered by <a href="https://github.com/markdalgleish/bespoke-keys">bespoke-keys</a>
+
+      section
+        h2 Touch Interaction
+        h3 Powered by <a href="https://github.com/markdalgleish/bespoke-touch">bespoke-touch</a>
+
+      section
+        h2 Responsive Slides
+        h3 Powered by <a href="https://github.com/markdalgleish/bespoke-scale">bespoke-scale</a>
+
+      section
+        h2 Bullet List
+        h3.bullet Powered by <a href="https://github.com/markdalgleish/bespoke-bullets">bespoke-bullets</a>
+        ul
+          li Bullet 1
+          li Bullet 2
+          li Bullet 3
+
+      section
+        h2 Syntax Highlighting
+        h3 Powered by <a href="http://twitter.com/LeaVerou">Lea Verou</a>'s <a href="https://github.com/LeaVerou/prism">Prism</a>
+        pre
+          code.language-javascript.
+            bespoke.from('article', [
+              classes(),
+              keys(),
+              touch(),
+              bullets('li, .bullet')
+            ]);
+
+      section(data-bespoke-hash='named-route')
+        h2 Named Route
+        h3 Powered by <a href="https://github.com/markdalgleish/bespoke-hash">bespoke-hash</a>
+        p Look up! This route has been named with a <em>'data-bespoke-hash'</em> attribute.
+
+      section(data-bespoke-state='emphatic')
+        h2 Emphatic Slide!
+        h3 Powered by <a href="https://github.com/markdalgleish/bespoke-state">bespoke-state</a>
+
+      section
+        h2.bullet Just the beginning...
+        br
+        ul
+          li Edit <a href="http://jade-lang.com/">Jade</a> markup in <em>'src/index.jade'</em>
+          li Edit <a href="http://learnboost.github.io/stylus/">Stylus</a> styles in <em>'src/styles/main.styl'</em>
+          li Edit JavaScript in <em>'src/scripts/main.js'</em>
+        br
+        ul
+          li
+            strong Enjoy! :)
+            a(href='http://twitter.com/markdalgleish')  -@markdalgleish
+
+    script(src='build/build.js')
