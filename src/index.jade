@@ -53,9 +53,9 @@ html
         h3 Good code
         ul
           li
-          li <strong>Everything is relevant</strong>. There's no dead code. If you're not sure, is something's dead, delete it, git revert will forgive you.
+          li <strong>Everything is relevant</strong>. If you're not sure if something's used, delete it. 'git revert' will forgive you.
           li <strong>You can change something once</strong> because the the code is free of duplication.
-          li There's <strong>less to be updated and maintained or changed</strong> because the code is free of of unnecessary things. That includes unnecessary good things.
+          li There's <strong>less to be updated and maintained or changed</strong> because the code is free of of unnecessary things. That includes <strong>unnecessary good things</strong>.
 
 
       section.chapter
@@ -64,37 +64,36 @@ html
       section
         p Every API method:
         ul
+          li
           li Repeated auth key
           li Repeated endpoint
           li Repeated content-type etc.
 
-      section
+      section.subtle-max-ogden
         h2 Simplify: single function export
         ul
           li
           li Export a single function, that takes auth key, endpoint, and a returns an object with methods that use them.
-          li Smaller code inside closure
-          li Smaller function signatures.
-          li Easier testing since we've just implemented dependency injection
-
+          li Smaller, simpler function signatures.
+          li Add additional headers in a single place
       section.chapter
         h2 Realtime
 
       section
         ul
-          li Repeated paths - REST API and websocket
-          li Additional complexity to support these unneeded duplex communications
-          li Additional complexity to support old web technologies
-          li Different debug mechanism
+          li Repeated paths - REST API and websocket.
+          li Additional complexity to support full duplex communications.
+          li Additional complexity to support old web technologies.
+          li Different debug mechanism.
 
       section
         h2 Simplify:
         ul
           li
-          li HTML5 SSE
-          li Entire API now in REST/HTTP
-          li Single mechanism to get something from the server
-          li Less code
+          li HTML5 SSE.
+          li Entire API now in REST/HTTP.
+          li Single mechanism to get something from the server.
+          li Less code.
 
       section.chapter
         h2 Rate limiting
@@ -102,66 +101,74 @@ html
       section
         ul
           li
-          li Third party API
-          li Limit is amount over a time period
-          li Technically a very simple problem
+          li Third party API.
+          li Limit is amount over a time period.
+          li Technically a very simple problem.
 
       section
         h2 Simplify: existing library
         ul
           li
-          li Found `node-rate-limit`
-          li <strong>Function signature of module was 1:1 match with requirements</strong>
-          li Benefit: problem fixed, no significant new code
-          li We use libraries for DOM. Use them for modals, state machines, statistics, and AJAX loaders.
+          li Found `node-rate-limit`.
+          li <strong>Function signature of module was 1:1 match with requirements</strong>.
+          li Benefit: problem fixed, no significant new code.
+          li We use libraries for DOM and AJAX, but they're also good for state machines, statistics and most other common tasks.
 
       section.chapter
         h2 Data Binding
 
       section
         ul
-          li HTML template, some data, somewhere in the document.
+          li
+          li We have data.
+          li We have an HTML template.
+          li We'd like them to be rendered somewhere in the document.
+          li And update what's necessary when the data changes.
 
       section
         h2 Simplify:
         ul
           li
           li ractive.js
-          li Function signature of module was 1:1 match with problem
-          li Benefit: things we didn't consider
+          li Function signature of ractive is 1:1 match with problem of binding.
+          li Benefit: things we didn't consider.
 
       section.chapter
         h2 DOM complexity
 
       section
-        p Needed: button, inside a header, inside a nav (header only for vertical centering)
+        h3 Needed: some buttons, inside a header, inside a nav
         ul
           li
-          li 7 levels deep,
-          li one JS global
-          li styling classes in the DOM
-          li things like nav class="nav"
+          li DOM 7 levels deep.
+          li A new JS global.
+          li Styling classes in the DOM.
+          li Things like `nav class="nav"`
 
       section
-        h2 Simplify: hand code
+        h2 Simplify: hand coded DOM and SASS
         ul
-          li Block element layout was a near* 1:1 match match with design
-          li All elements styled in SASS
-          li All elements styled through a single class name. The button in the nav are styles through `nav button`
-          sub * one extra element for vertical centering
+          li
+          li Block element layout was a near* 1:1 match match with design.
+          li All elements styled in SASS.
+          li Elements needed only a single class name at most.
+
+      section.chapter
+        h2 JS itself
 
       section
-        h3 JS itself
+        p JS has it's own repetition.
         ul
-          li console.log(), document.querySelectorAll(), etc.
-          li Solition: in you own code, write all the globals you want and bind them to the objects.
-          li Nobody every types console.
+          li
+          li Ever made a typo running console.log() or document.querySelector()?
 
       section
-        h3 Work practice complexity
+        h2 Simplify: add short aliases
         ul
-          li Ticket management system (JIRA?) - images attached to ticket were downloaded, 10 images = 20 clicks to see them all.
-          li Simplify: inline every image attachment with a Chrome extension.
+          li
+          li log(), query() on whatever scope you control.
+          li Less typos.
+          li Boosts signal/noise ratio of your code.
 
       section
         h2 In Summary
@@ -169,64 +176,13 @@ html
           li
           li Unnecessary complexity is a drag.
           li Actively think about simplicity.
-          li Keep moving, keep happy.
+          li And most importantly...
 
-      section
+      section.stayhappy
+        h2 Keep moving, keep happy.
+
+      section.thanks
         h1 Thanks!
-        h2 @mikemaccana
-
-      section
-        h2 Keyboard Interaction
-        h3 Powered by <a href="https://github.com/markdalgleish/bespoke-keys">bespoke-keys</a>
-
-      section
-        h2 Touch Interaction
-        h3 Powered by <a href="https://github.com/markdalgleish/bespoke-touch">bespoke-touch</a>
-
-      section
-        h2 Responsive Slides
-        h3 Powered by <a href="https://github.com/markdalgleish/bespoke-scale">bespoke-scale</a>
-
-      section
-        h2 Bullet List
-        h3.bullet Powered by <a href="https://github.com/markdalgleish/bespoke-bullets">bespoke-bullets</a>
-        ul
-          li Bullet 1
-          li Bullet 2
-          li Bullet 3
-
-      section
-        h2 Syntax Highlighting
-        h3 Powered by <a href="http://twitter.com/LeaVerou">Lea Verou</a>'s <a href="https://github.com/LeaVerou/prism">Prism</a>
-        pre
-          code.language-javascript.
-            bespoke.from('article', [
-              classes(),
-              keys(),
-              touch(),
-              bullets('li, .bullet')
-            ]);
-
-      section(data-bespoke-hash='named-route')
-        h2 Named Route
-        h3 Powered by <a href="https://github.com/markdalgleish/bespoke-hash">bespoke-hash</a>
-        p Look up! This route has been named with a <em>'data-bespoke-hash'</em> attribute.
-
-      section(data-bespoke-state='emphatic')
-        h2 Emphatic Slide!
-        h3 Powered by <a href="https://github.com/markdalgleish/bespoke-state">bespoke-state</a>
-
-      section
-        h2.bullet Just the beginning...
-        br
-        ul
-          li Edit <a href="http://jade-lang.com/">Jade</a> markup in <em>'src/index.jade'</em>
-          li Edit <a href="http://learnboost.github.io/stylus/">Stylus</a> styles in <em>'src/styles/main.styl'</em>
-          li Edit JavaScript in <em>'src/scripts/main.js'</em>
-        br
-        ul
-          li
-            strong Enjoy! :)
-            a(href='http://twitter.com/markdalgleish')  -@markdalgleish
+        h2 <a href='http://twitter.com/mikemaccana'>@mikemaccana</a>
 
     script(src='build/build.js')

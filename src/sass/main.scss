@@ -95,6 +95,28 @@ section {
     q {margin-top: 40%}
   }
 
+  &.stayhappy {
+    @include slide-background("stayhappy.jpg");
+    q {margin-top: 40%}
+  }
+
+  &.cheers {
+    @include slide-background("cheers.jpg");
+    q {margin-top: 40%}
+  }
+
+  &.subtle-max-ogden {
+    background-image: url("/images/subtle-max-ogden.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% auto;
+  }
+
+  &.thanks {
+  	@include no-twitter-handle();
+  }
+
+
   &::after {
     content: '@mikemaccana';
     font-family: 'Pacifico';

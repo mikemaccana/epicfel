@@ -1,4 +1,11 @@
 
+
+section
+  h3 Work practice complexity
+  ul
+    li Ticket management system (JIRA?) - images attached to ticket were downloaded, 10 images = 20 clicks to see them all.
+    li Simplify: inline every image attachment with a Chrome extension.
+
 section
   h2 What we don't mean
   ul
